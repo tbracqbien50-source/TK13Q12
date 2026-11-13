@@ -202,7 +202,7 @@ function render(){
  const empty=u.credits<=0;
  $("noCredit").classList.toggle("hidden",!empty);
  $("use").disabled=empty;
- $("use").textContent=empty?"MANQUE DE CRÉDIT":"UTILISER LE SERVICE (-1 CRÉDIT)";
+ <button class="full" id="use">LANCER L'OPÉRATION (-1 CRÉDIT)</button>
  renderList();
 }
 
