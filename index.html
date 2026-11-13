@@ -4,175 +4,273 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TK13Q12 - SnapFinder</title>
+<title>TK13Q12</title>
 <style>
 *{box-sizing:border-box}
-body{
- margin:0;background:#080808;color:white;
- font-family:Arial,sans-serif;
-}
-.app{max-width:600px;margin:auto;padding:22px}
-header{
- display:flex;justify-content:space-between;
- border-bottom:1px solid #492020;padding-bottom:20px;
-}
-.logo{color:#ff2020;font-size:25px;font-weight:900}
-.logo span{color:white}
-.status{color:#ff4545;font-size:11px}
-.hero{text-align:center;margin:65px 0 40px}
-.tag{color:#ff3434;font-size:10px;letter-spacing:4px}
-h1{font-size:42px;margin:18px 0 8px}
-h1 span{color:#ff2020}
-.hero p{color:#777;font-size:13px}
-.panel{
- background:#111;border:1px solid #492020;
- border-radius:12px;padding:22px;
- box-shadow:0 0 30px #3b000022;
-}
-label{color:#ff4545;font-size:11px;letter-spacing:2px}
-.input-box{
- display:flex;align-items:center;background:#080808;
- border:1px solid #572020;padding:14px;margin:12px 0 18px;
-}
-.input-box span{color:red;margin-right:10px}
-input{
- width:100%;background:transparent;border:0;
- outline:0;color:white;font-size:14px;
-}
-button{
- width:100%;padding:15px;background:#c90000;
- color:white;border:0;font-weight:bold;
- letter-spacing:2px;border-radius:5px;
-}
-.terminal{
- display:none;background:#050505;
- border:1px solid #3b1717;margin-top:25px;
- padding:15px;font-family:monospace;
-}
-.terminal-title{
- display:flex;justify-content:space-between;
- color:#ff3333;border-bottom:1px solid #321010;
- padding-bottom:10px;font-size:11px;
-}
-#logs{color:#ff6565;font-size:12px;line-height:2}
-.result{display:none;margin-top:22px;text-align:center}
-.success{color:#ff3535;font-weight:bold}
-.notice{color:#999;font-size:11px;line-height:1.6}
-.delete{margin-top:15px;background:#780000}
-footer{
- text-align:center;color:#555;font-size:10px;
- margin-top:50px;letter-spacing:2px;
-}
+body{margin:0;background:#09090e;color:white;font-family:Arial,sans-serif}
+main{max-width:650px;margin:auto;padding:20px}
+header{display:flex;justify-content:space-between;align-items:center;padding:15px 0}
+.logo{font-size:25px;font-weight:900;letter-spacing:2px}
+.logo span,.red{color:#ff2638}
+.tag{color:#ff8994;border:1px solid #742630;padding:6px 10px;border-radius:20px;font-size:11px}
+.hero{text-align:center;padding:35px 0 20px}
+.hero h1{font-size:35px;margin:10px 0}
+.hero p,.muted{color:#999eaa;font-size:13px;line-height:1.5}
+.card{background:#15151e;border:1px solid #30303b;border-radius:16px;padding:20px;margin:16px 0}
+h2{margin-top:0;font-size:20px}
+label{display:block;color:#bbb;font-size:12px;margin:13px 0 7px}
+input{width:100%;padding:14px;background:#09090e;color:white;border:1px solid #393946;border-radius:9px;font-size:15px}
+button{padding:13px;border:0;border-radius:9px;background:#ff2638;color:white;font-weight:bold;cursor:pointer}
+button:disabled{opacity:.4}
+.full{width:100%;margin-top:14px}
+.secondary{background:#292936}
+.danger{background:#681b28}
+.row{display:flex;gap:10px;align-items:end}
+.row>*{flex:1;min-width:0}
+.hidden{display:none!important}
+.tabs{display:flex;gap:8px;margin-bottom:15px}
+.tabs button{flex:1}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0}
+.stat{background:#09090e;padding:15px;border:1px solid #333;border-radius:12px}
+.stat small{color:#999}
+.number{font-size:34px;font-weight:900;margin-top:8px}
+.notice{padding:14px;border-radius:10px;margin:14px 0;font-weight:bold}
+.warning{background:#40151d;border:1px solid #a12b3a;color:#ff9ba5}
+.userline{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #333}
+footer{text-align:center;color:#666;font-size:11px;margin:30px 0}
 </style>
 </head>
 <body>
-<div class="app">
+<main>
 <header>
- <div class="logo">TK13Q12<span>.</span></div>
- <div class="status">● SYSTEM ONLINE</div>
+ <div class="logo">TK<span>13</span>Q12</div>
+ <div class="tag">VERSION DÉMO</div>
 </header>
 
-<main>
-<div class="hero">
- <div class="tag">CYBER SECURITY INTERFACE</div>
- <h1>SNAP<span>FINDER</span></h1>
- <p>Username analysis terminal</p>
-</div>
-
-<section class="panel">
-<label for="username">TARGET USERNAME</label>
-<div class="input-box">
- <span>@</span>
- <input id="username" placeholder="Enter Snapchat username"
- maxlength="30">
-</div>
-
-<button id="searchBtn">INITIALIZE SCAN</button>
-
-<div id="terminal" class="terminal">
- <div class="terminal-title">
-  <span>TERMINAL</span><span>TK13Q12</span>
- </div>
- <div id="logs"></div>
-</div>
-
-<div id="result" class="result">
- <div class="success">SIMULATION COMPLETE</div>
- <p id="resultName"></p>
- <p class="notice">
- Démonstration visuelle uniquement.
- Aucune donnée Snapchat réelle consultée.
- Aucun compte supprimé.
- </p>
- <button id="deleteBtn" class="delete">
- OPEN SNAPCHAT
- </button>
-</div>
+<section class="hero">
+ <div class="red">ESPACE UTILISATEUR</div>
+ <h1>Bienvenue sur TK13Q12</h1>
+ <p>Connecte-toi pour accéder à ton espace.</p>
 </section>
+
+<section class="card" id="auth">
+ <div class="tabs">
+  <button id="registerTab">CRÉER UN COMPTE</button>
+  <button class="secondary" id="loginTab">CONNEXION</button>
+ </div>
+
+ <div id="register">
+  <label>PSEUDO</label>
+  <input id="newName" maxlength="24" placeholder="Choisis ton pseudo">
+  <label>MOT DE PASSE</label>
+  <input id="newPassword" type="password" placeholder="Minimum 6 caractères">
+  <label>CONFIRMER LE MOT DE PASSE</label>
+  <input id="confirmPassword" type="password" placeholder="Confirme ton mot de passe">
+  <button class="full" id="create">CRÉER MON COMPTE</button>
+ </div>
+
+ <div id="login" class="hidden">
+  <label>PSEUDO</label>
+  <input id="loginName" placeholder="Ton pseudo">
+  <label>MOT DE PASSE</label>
+  <input id="loginPassword" type="password" placeholder="Ton mot de passe">
+  <button class="full" id="connect">SE CONNECTER</button>
+ </div>
+ <p id="message" class="muted"></p>
+</section>
+
+<section class="card hidden" id="account">
+ <div class="row">
+  <h2 id="hello">Mon compte</h2>
+  <button class="secondary" id="logout">DÉCONNEXION</button>
+ </div>
+ <div id="noCredit" class="notice warning hidden">
+  MANQUE DE CRÉDIT — Tu ne peux plus utiliser le service.
+ </div>
+ <div class="stats">
+  <div class="stat"><small>CRÉDITS</small><div class="number red" id="credits">0</div></div>
+  <div class="stat"><small>UTILISATIONS</small><div class="number" id="uses">0</div></div>
+ </div>
+ <button class="full" id="use">UTILISER LE SERVICE (-1 CRÉDIT)</button>
+ <p class="muted">Chaque utilisation de cette démonstration consomme un crédit.</p>
+</section>
+
+<section class="card">
+ <h2>🔐 Panel administrateur</h2>
+ <p class="muted">Accès réservé à l'administration.</p>
+ <div id="adminLogin">
+  <label>CODE ADMIN</label>
+  <input id="adminPassword" type="password" placeholder="Code secret">
+  <button class="full" id="adminEnter">OUVRIR LE PANEL</button>
+ </div>
+ <div id="admin" class="hidden">
+  <label>PSEUDO À GÉRER</label>
+  <input id="target" placeholder="Pseudo exact">
+  <label>NOMBRE DE CRÉDITS</label>
+  <input id="amount" type="number" min="1" value="1">
+  <div class="row" style="margin-top:12px">
+   <button id="add">+ AJOUTER</button>
+   <button class="danger" id="remove">- RETIRER</button>
+  </div>
+  <h3>Comptes enregistrés</h3>
+  <div id="list" class="muted">Aucun compte.</div>
+ </div>
+</section>
+
+<footer>TK13Q12 • Prototype de démonstration • Aucun accès aux données Snapchat</footer>
 </main>
 
-<footer>TK13Q12 © 2026 — CYBER INTERFACE</footer>
-</div>
-
 <script>
-const searchBtn=document.getElementById("searchBtn");
-const username=document.getElementById("username");
-const terminal=document.getElementById("terminal");
-const logs=document.getElementById("logs");
-const result=document.getElementById("result");
-const resultName=document.getElementById("resultName");
-const deleteBtn=document.getElementById("deleteBtn");
+const DB="tk13q12_demo_v3";
+const RESET="tk13q12_reset_v3";
+let users={};
+let current=null;
 
-let scanning=false;
+try{users=JSON.parse(localStorage.getItem(DB)||"{}")}catch(e){users={}}
 
-searchBtn.addEventListener("click",async()=>{
- const pseudo=username.value.trim();
+const $=id=>document.getElementById(id);
+const key=s=>s.trim().toLowerCase();
+const clean=s=>s.trim().replace(/\s+/g," ").slice(0,24);
 
- if(!pseudo){
-  alert("Entre un pseudo Snapchat !");
-  return;
+function save(){
+ localStorage.setItem(DB,JSON.stringify(users));
+}
+
+function message(t){
+ $("message").textContent=t;
+}
+
+function tab(register){
+ $("register").classList.toggle("hidden",!register);
+ $("login").classList.toggle("hidden",register);
+ $("registerTab").classList.toggle("secondary",!register);
+ $("loginTab").classList.toggle("secondary",register);
+ message("");
+}
+
+$("registerTab").onclick=()=>tab(true);
+$("loginTab").onclick=()=>tab(false);
+
+$("create").onclick=()=>{
+ const name=clean($("newName").value);
+ const pass=$("newPassword").value;
+ const confirm=$("confirmPassword").value;
+ const k=key(name);
+
+ if(!name||!pass||!confirm)return message("Remplis tous les champs.");
+ if(pass.length<6)return message("6 caractères minimum pour le mot de passe.");
+ if(pass!==confirm)return message("Les mots de passe sont différents.");
+ if(users[k])return message("Ce pseudo existe déjà.");
+
+ users[k]={name,password:pass,credits:0,uses:0};
+ save();
+ enter(k);
+};
+
+$("connect").onclick=()=>{
+ const k=key($("loginName").value);
+ const pass=$("loginPassword").value;
+
+ if(!users[k]||users[k].password!==pass)
+  return message("Pseudo ou mot de passe incorrect.");
+
+ enter(k);
+};
+
+function enter(k){
+ current=k;
+ $("auth").classList.add("hidden");
+ $("account").classList.remove("hidden");
+ render();
+}
+
+$("logout").onclick=()=>{
+ current=null;
+ $("account").classList.add("hidden");
+ $("auth").classList.remove("hidden");
+ tab(false);
+ $("loginPassword").value="";
+};
+
+function render(){
+ if(!current)return;
+ const u=users[current];
+ $("hello").textContent="Salut, "+u.name+" !";
+ $("credits").textContent=u.credits;
+ $("uses").textContent=u.uses;
+
+ const empty=u.credits<=0;
+ $("noCredit").classList.toggle("hidden",!empty);
+ $("use").disabled=empty;
+ $("use").textContent=empty?"MANQUE DE CRÉDIT":"UTILISER LE SERVICE (-1 CRÉDIT)";
+ renderList();
+}
+
+$("use").onclick=()=>{
+ const u=users[current];
+ if(!u||u.credits<=0)return render();
+ u.credits--;
+ u.uses++;
+ save();
+ render();
+};
+
+$("adminEnter").onclick=()=>{
+ if($("adminPassword").value!=="TK13-DEMO")
+  return alert("Code incorrect.");
+
+ $("adminLogin").classList.add("hidden");
+ $("admin").classList.remove("hidden");
+ renderList();
+};
+
+function manage(add){
+ const k=key($("target").value);
+ const amount=Math.floor(Number($("amount").value));
+
+ if(!users[k])return alert("Ce compte n'existe pas.");
+ if(!Number.isFinite(amount)||amount<1)
+  return alert("Indique un nombre valide.");
+
+ users[k].credits=Math.max(0,users[k].credits+(add?amount:-amount));
+ save();
+ renderList();
+ if(current===k)render();
+}
+
+$("add").onclick=()=>manage(true);
+$("remove").onclick=()=>manage(false);
+
+function renderList(){
+ const entries=Object.values(users);
+ $("list").innerHTML=entries.length
+ ?entries.map(u=>"<div class='userline'><b>"+escapeText(u.name)+"</b><span>"+u.credits+" crédit(s)</span></div>").join("")
+ :"Aucun compte.";
+}
+
+function escapeText(s){
+ return s.replace(/[&<>"']/g,c=>({
+ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+ }[c]));
+}
+
+function resetCheck(){
+ const now=new Date();
+ const today=now.getFullYear()+"-"+(now.getMonth()+1)+"-"+now.getDate();
+
+ if(now.getHours()>=23&&localStorage.getItem(RESET)!==today){
+  Object.values(users).forEach(u=>{
+   u.credits=0;
+   u.uses=0;
+  });
+  localStorage.setItem(RESET,today);
+  save();
+  render();
  }
+}
 
- if(scanning)return;
-
- scanning=true;
- searchBtn.disabled=true;
- searchBtn.textContent="SCANNING...";
- terminal.style.display="block";
- result.style.display="none";
- logs.replaceChildren();
-
- const messages=[
-  "[SYSTEM] Initializing terminal...",
-  "[ACCESS] Simulation started...",
-  "[SCAN] Analyzing username...",
-  "[TRACE] Processing visual effects...",
-  "[SYSTEM] Preparing results...",
-  "[DONE] Simulation completed."
- ];
-
- for(const message of messages){
-  const line=document.createElement("div");
-  line.textContent=message;
-  logs.appendChild(line);
-  await new Promise(resolve=>setTimeout(resolve,700));
- }
-
- resultName.textContent="TARGET: @"+pseudo;
- result.style.display="block";
- searchBtn.textContent="SCAN AGAIN";
- searchBtn.disabled=false;
- scanning=false;
-});
-
-deleteBtn.addEventListener("click",()=>{
- window.location.href="https://www.snapchat.com/";
-});
-
-username.addEventListener("keydown",e=>{
- if(e.key==="Enter")searchBtn.click();
-});
+resetCheck();
+setInterval(resetCheck,30000);
 </script>
 </body>
 </html>
-
