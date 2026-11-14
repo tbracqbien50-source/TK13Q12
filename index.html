@@ -4,273 +4,160 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TK13Q12</title>
+<title>TK13Q12 Cyber Lab</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#09090e;color:white;font-family:Arial,sans-serif}
-main{max-width:650px;margin:auto;padding:20px}
-header{display:flex;justify-content:space-between;align-items:center;padding:15px 0}
-.logo{font-size:25px;font-weight:900;letter-spacing:2px}
-.logo span,.red{color:#ff2638}
-.tag{color:#ff8994;border:1px solid #742630;padding:6px 10px;border-radius:20px;font-size:11px}
-.hero{text-align:center;padding:35px 0 20px}
-.hero h1{font-size:35px;margin:10px 0}
-.hero p,.muted{color:#999eaa;font-size:13px;line-height:1.5}
-.card{background:#15151e;border:1px solid #30303b;border-radius:16px;padding:20px;margin:16px 0}
-h2{margin-top:0;font-size:20px}
-label{display:block;color:#bbb;font-size:12px;margin:13px 0 7px}
-input{width:100%;padding:14px;background:#09090e;color:white;border:1px solid #393946;border-radius:9px;font-size:15px}
-button{padding:13px;border:0;border-radius:9px;background:#ff2638;color:white;font-weight:bold;cursor:pointer}
+body{margin:0;background:#080b12;color:#eee;font-family:Arial,sans-serif;padding:20px}
+main{max-width:650px;margin:auto}
+h1{color:#ff304f;text-align:center}
+.card{background:#141b27;border:1px solid #303b4d;border-radius:14px;padding:20px;margin:15px 0}
+input{width:100%;padding:13px;margin:8px 0;background:#080e18;border:1px solid #39475c;color:white;border-radius:8px}
+button{padding:13px;border:0;border-radius:8px;background:#e92e4d;color:white;font-weight:bold;margin:5px 0;cursor:pointer}
 button:disabled{opacity:.4}
-.full{width:100%;margin-top:14px}
-.secondary{background:#292936}
-.danger{background:#681b28}
-.row{display:flex;gap:10px;align-items:end}
-.row>*{flex:1;min-width:0}
-.hidden{display:none!important}
-.tabs{display:flex;gap:8px;margin-bottom:15px}
-.tabs button{flex:1}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0}
-.stat{background:#09090e;padding:15px;border:1px solid #333;border-radius:12px}
-.stat small{color:#999}
-.number{font-size:34px;font-weight:900;margin-top:8px}
-.notice{padding:14px;border-radius:10px;margin:14px 0;font-weight:bold}
-.warning{background:#40151d;border:1px solid #a12b3a;color:#ff9ba5}
-.userline{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #333}
-footer{text-align:center;color:#666;font-size:11px;margin:30px 0}
+.secondary{background:#344257}
+.full{width:100%}
+.hidden{display:none}
+.credit{font-size:30px;color:#ff405d;font-weight:bold}
+.muted{color:#a7b2c2;font-size:13px}
+.console{background:#030609;color:#61f5a6;padding:15px;border-radius:9px;min-height:130px;white-space:pre-wrap;font:13px monospace}
+.bar{height:9px;background:#303b4d;border-radius:10px;margin:15px 0;overflow:hidden}
+.fill{height:100%;width:0;background:#ff304f;transition:width .3s}
 </style>
 </head>
 <body>
 <main>
-<header>
- <div class="logo">TK<span>13</span>Q12</div>
- <div class="tag">VERSION DÉMO</div>
-</header>
+<h1>TK13Q12 // CYBER LAB</h1>
+<p class="muted" style="text-align:center">CENTRE DE DÉMONSTRATION CYBERSÉCURITÉ</p>
 
-<section class="hero">
- <div class="red">ESPACE UTILISATEUR</div>
- <h1>Bienvenue sur TK13Q12</h1>
- <p>Connecte-toi pour accéder à ton espace.</p>
-</section>
+<div class="card">
+<p class="muted">ENVIRONNEMENT DE TEST — AUCUNE CONNEXION RÉELLE À SNAPCHAT.</p>
+</div>
 
 <section class="card" id="auth">
- <div class="tabs">
-  <button id="registerTab">CRÉER UN COMPTE</button>
-  <button class="secondary" id="loginTab">CONNEXION</button>
- </div>
-
- <div id="register">
-  <label>PSEUDO</label>
-  <input id="newName" maxlength="24" placeholder="Choisis ton pseudo">
-  <label>MOT DE PASSE</label>
-  <input id="newPassword" type="password" placeholder="Minimum 6 caractères">
-  <label>CONFIRMER LE MOT DE PASSE</label>
-  <input id="confirmPassword" type="password" placeholder="Confirme ton mot de passe">
-  <button class="full" id="create">CRÉER MON COMPTE</button>
- </div>
-
- <div id="login" class="hidden">
-  <label>PSEUDO</label>
-  <input id="loginName" placeholder="Ton pseudo">
-  <label>MOT DE PASSE</label>
-  <input id="loginPassword" type="password" placeholder="Ton mot de passe">
-  <button class="full" id="connect">SE CONNECTER</button>
- </div>
- <p id="message" class="muted"></p>
+<h2>Créer un compte</h2>
+<input id="username" placeholder="Pseudo">
+<input id="password" type="password" placeholder="Mot de passe de test">
+<button class="full" onclick="register()">INSCRIPTION</button>
+<hr>
+<h2>Connexion</h2>
+<input id="loginUser" placeholder="Pseudo">
+<input id="loginPass" type="password" placeholder="Mot de passe">
+<button class="full" onclick="login()">SE CONNECTER</button>
+<p id="authMsg"></p>
 </section>
 
 <section class="card hidden" id="account">
- <div class="row">
-  <h2 id="hello">Mon compte</h2>
-  <button class="secondary" id="logout">DÉCONNEXION</button>
- </div>
- <div id="noCredit" class="notice warning hidden">
-  MANQUE DE CRÉDIT — Tu ne peux plus utiliser le service.
- </div>
- <div class="stats">
-  <div class="stat"><small>CRÉDITS</small><div class="number red" id="credits">0</div></div>
-  <div class="stat"><small>UTILISATIONS</small><div class="number" id="uses">0</div></div>
- </div>
- <button class="full" id="use">UTILISER LE SERVICE (-1 CRÉDIT)</button>
- <p class="muted">Chaque utilisation de cette démonstration consomme un crédit.</p>
+<h2 id="welcome">MON COMPTE</h2>
+<button class="secondary" onclick="logout()">DÉCONNEXION</button>
+<p>CRÉDITS DISPONIBLES</p>
+<div class="credit" id="credits">0</div>
+<p class="muted">Chaque lancement consomme un crédit.</p>
+<input id="target" placeholder="Pseudo fictif à afficher">
+<button class="full" id="launch" onclick="launch()">LANCER L'OPÉRATION · -1 CRÉDIT</button>
+<div class="bar"><div class="fill" id="fill"></div></div>
+<div class="console" id="console">[TK13Q12] En attente...</div>
+<p id="result"></p>
+<p id="blocked" style="color:#ff405d"></p>
 </section>
 
 <section class="card">
- <h2>🔐 Panel administrateur</h2>
- <p class="muted">Accès réservé à l'administration.</p>
- <div id="adminLogin">
-  <label>CODE ADMIN</label>
-  <input id="adminPassword" type="password" placeholder="Code secret">
-  <button class="full" id="adminEnter">OUVRIR LE PANEL</button>
- </div>
- <div id="admin" class="hidden">
-  <label>PSEUDO À GÉRER</label>
-  <input id="target" placeholder="Pseudo exact">
-  <label>NOMBRE DE CRÉDITS</label>
-  <input id="amount" type="number" min="1" value="1">
-  <div class="row" style="margin-top:12px">
-   <button id="add">+ AJOUTER</button>
-   <button class="danger" id="remove">- RETIRER</button>
-  </div>
-  <h3>Comptes enregistrés</h3>
-  <div id="list" class="muted">Aucun compte.</div>
- </div>
+<h2>PANEL ADMINISTRATEUR</h2>
+<p class="muted">Code de démonstration : TK13-DEMO</p>
+<input id="adminCode" placeholder="Code administrateur">
+<button onclick="unlock()">OUVRIR LE PANEL</button>
+<div id="admin" class="hidden">
+<input id="adminUser" placeholder="Pseudo du compte">
+<input id="amount" type="number" min="1" placeholder="Nombre de crédits">
+<button onclick="changeCredits(1)">AJOUTER DES CRÉDITS</button>
+<button class="secondary" onclick="changeCredits(-1)">RETIRER DES CRÉDITS</button>
+<p id="adminMsg"></p>
+</div>
 </section>
 
-<footer>TK13Q12 • Prototype de démonstration • Aucun accès aux données Snapchat</footer>
+<p class="muted" style="text-align:center">TK13Q12 — CYBER LAB — DEMO</p>
 </main>
 
 <script>
-const DB="tk13q12_demo_v3";
-const RESET="tk13q12_reset_v3";
-let users={};
-let current=null;
-
-try{users=JSON.parse(localStorage.getItem(DB)||"{}")}catch(e){users={}}
-
-const $=id=>document.getElementById(id);
-const key=s=>s.trim().toLowerCase();
-const clean=s=>s.trim().replace(/\s+/g," ").slice(0,24);
+const KEY="tk13q12_test_accounts";
+let users=JSON.parse(localStorage.getItem(KEY)||"{}");
+let current=null,busy=false;
 
 function save(){
- localStorage.setItem(DB,JSON.stringify(users));
+ localStorage.setItem(KEY,JSON.stringify(users));
 }
-
-function message(t){
- $("message").textContent=t;
-}
-
-function tab(register){
- $("register").classList.toggle("hidden",!register);
- $("login").classList.toggle("hidden",register);
- $("registerTab").classList.toggle("secondary",!register);
- $("loginTab").classList.toggle("secondary",register);
- message("");
-}
-
-$("registerTab").onclick=()=>tab(true);
-$("loginTab").onclick=()=>tab(false);
-
-$("create").onclick=()=>{
- const name=clean($("newName").value);
- const pass=$("newPassword").value;
- const confirm=$("confirmPassword").value;
- const k=key(name);
-
- if(!name||!pass||!confirm)return message("Remplis tous les champs.");
- if(pass.length<6)return message("6 caractères minimum pour le mot de passe.");
- if(pass!==confirm)return message("Les mots de passe sont différents.");
- if(users[k])return message("Ce pseudo existe déjà.");
-
- users[k]={name,password:pass,credits:0,uses:0};
- save();
- enter(k);
-};
-
-$("connect").onclick=()=>{
- const k=key($("loginName").value);
- const pass=$("loginPassword").value;
-
- if(!users[k]||users[k].password!==pass)
-  return message("Pseudo ou mot de passe incorrect.");
-
- enter(k);
-};
-
-function enter(k){
- current=k;
- $("auth").classList.add("hidden");
- $("account").classList.remove("hidden");
- render();
-}
-
-$("logout").onclick=()=>{
- current=null;
- $("account").classList.add("hidden");
- $("auth").classList.remove("hidden");
- tab(false);
- $("loginPassword").value="";
-};
-
 function render(){
- if(!current)return;
- const u=users[current];
- $("hello").textContent="Salut, "+u.name+" !";
- $("credits").textContent=u.credits;
- $("uses").textContent=u.uses;
-
- const empty=u.credits<=0;
- $("noCredit").classList.toggle("hidden",!empty);
- $("use").disabled=empty;
- <button class="full" id="use">LANCER L'OPÉRATION (-1 CRÉDIT)</button>
- renderList();
+ const logged=!!current;
+ document.getElementById("auth").classList.toggle("hidden",logged);
+ document.getElementById("account").classList.toggle("hidden",!logged);
+ if(!logged)return;
+ document.getElementById("welcome").textContent="MON COMPTE : "+current;
+ document.getElementById("credits").textContent=users[current].credits;
+ document.getElementById("launch").disabled=busy||users[current].credits<=0;
+ document.getElementById("blocked").textContent=
+ users[current].credits<=0?"MANQUE DE CRÉDIT — Accès indisponible.":"";
 }
-
-$("use").onclick=()=>{
- const u=users[current];
- if(!u||u.credits<=0)return render();
- u.credits--;
- u.uses++;
- save();
- render();
-};
-
-$("adminEnter").onclick=()=>{
- if($("adminPassword").value!=="TK13-DEMO")
-  return alert("Code incorrect.");
-
- $("adminLogin").classList.add("hidden");
- $("admin").classList.remove("hidden");
- renderList();
-};
-
-function manage(add){
- const k=key($("target").value);
- const amount=Math.floor(Number($("amount").value));
-
- if(!users[k])return alert("Ce compte n'existe pas.");
- if(!Number.isFinite(amount)||amount<1)
-  return alert("Indique un nombre valide.");
-
- users[k].credits=Math.max(0,users[k].credits+(add?amount:-amount));
- save();
- renderList();
- if(current===k)render();
+function register(){
+ let u=username.value.trim(),p=password.value;
+ if(!/^[a-zA-Z0-9_-]{3,20}$/.test(u))return authMsg.textContent="Pseudo invalide.";
+ if(p.length<6)return authMsg.textContent="6 caractères minimum.";
+ if(users[u])return authMsg.textContent="Pseudo déjà utilisé.";
+ users[u]={password:p,credits:0,uses:0};
+ save();current=u;render();
 }
-
-$("add").onclick=()=>manage(true);
-$("remove").onclick=()=>manage(false);
-
-function renderList(){
- const entries=Object.values(users);
- $("list").innerHTML=entries.length
- ?entries.map(u=>"<div class='userline'><b>"+escapeText(u.name)+"</b><span>"+u.credits+" crédit(s)</span></div>").join("")
- :"Aucun compte.";
+function login(){
+ let u=loginUser.value.trim();
+ if(!users[u]||users[u].password!==loginPass.value)
+ return authMsg.textContent="Identifiants incorrects.";
+ current=u;render();
 }
-
-function escapeText(s){
- return s.replace(/[&<>"']/g,c=>({
- "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
- }[c]));
-}
-
-function resetCheck(){
- const now=new Date();
- const today=now.getFullYear()+"-"+(now.getMonth()+1)+"-"+now.getDate();
-
- if(now.getHours()>=23&&localStorage.getItem(RESET)!==today){
-  Object.values(users).forEach(u=>{
-   u.credits=0;
-   u.uses=0;
-  });
-  localStorage.setItem(RESET,today);
-  save();
-  render();
+function logout(){current=null;render();}
+function launch(){
+ if(!current||busy)return;
+ let target=document.getElementById("target").value.trim();
+ if(!target)return result.textContent="Entre un pseudo fictif.";
+ if(users[current].credits<1)return render();
+ busy=true;users[current].credits--;users[current].uses++;save();render();
+ result.textContent="";
+ fill.style.width="0%";
+ const lines=[
+ "[01] Initialisation du laboratoire...",
+ "[02] Cible fictive : "+target,
+ "[03] Analyse visuelle en cours...",
+ "[04] Vérification des étapes...",
+ "[05] Démonstration terminée."
+ ];
+ let i=0;
+ console.textContent="[TK13Q12] Initialisation...";
+ function step(){
+  if(i<lines.length){
+   console.textContent+="\n"+lines[i];
+   fill.style.width=((i+1)*20)+"%";
+   i++;setTimeout(step,700);
+  }else{
+   busy=false;
+   result.textContent="DÉMONSTRATION TERMINÉE — Aucun compte contacté.";
+   render();
+  }
  }
+ setTimeout(step,400);
 }
-
-resetCheck();
-setInterval(resetCheck,30000);
+function unlock(){
+ if(adminCode.value==="TK13-DEMO"){
+  admin.classList.remove("hidden");
+  adminMsg.textContent="Panel de test ouvert.";
+ }else adminMsg.textContent="Code incorrect.";
+}
+function changeCredits(direction){
+ let u=adminUser.value.trim();
+ let n=Number(amount.value);
+ if(!users[u])return adminMsg.textContent="Compte introuvable.";
+ if(!Number.isInteger(n)||n<1)return adminMsg.textContent="Montant invalide.";
+ users[u].credits=Math.max(0,users[u].credits+direction*n);
+ save();
+ adminMsg.textContent="Nouveau solde : "+users[u].credits;
+ render();
+}
+render();
 </script>
 </body>
 </html>
